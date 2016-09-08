@@ -4,6 +4,7 @@ module Naturesoft::Customers
       belongs_to :country, class_name: "Naturesoft::Areas::Country"
       belongs_to :area, class_name: "Naturesoft::Areas::Area"
     end
+    validates :first_name, :last_name, :email, :phone, presence: true
     
     def self.sort_by
       [

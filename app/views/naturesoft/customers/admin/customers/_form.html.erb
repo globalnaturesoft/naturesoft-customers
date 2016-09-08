@@ -19,7 +19,7 @@
   
   <div class="panel-body">
 
-    <%= form_for([naturesoft_customers, :admin, customer], html: {class: "form-horizontal", id: "validate_checking", multipart: true}) do |f| %>
+    <%= form_for([naturesoft_customers, :admin, customer], html: {class: "form-horizontal validate", multipart: true}) do |f| %>
     
       <div class="row">
         <div class="col-md-6">
@@ -34,7 +34,7 @@
           <div class="form-group">
             <label class="col-md-12 control-label" ><%= t(:last_name) %> <span class='text-danger'>*</span></label>
             <div class="col-md-12">
-              <%= f.text_field :last_name, class: "form-control", placeholder: "Last name..." %>
+              <%= f.text_field :last_name, class: "form-control required", placeholder: "Last name..." %>
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <label class="col-md-12 control-label" ><%= t(:phone_number) %> <span class='text-danger'>*</span></label>
+            <label class="col-md-12 control-label" ><%= t(:phone) %> <span class='text-danger'>*</span></label>
             <div class="col-md-12">
               <%= f.text_field :phone, class: "form-control required" %>
             </div>
@@ -64,7 +64,7 @@
           <div class="form-group">
             <label class="col-md-12 control-label" ><%= t(:address) %> </label>
             <div class="col-md-12">
-              <%= f.text_field :address, class: "form-control required" %>
+              <%= f.text_field :address, class: "form-control" %>
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <label class="col-md-12 control-label" ><%= t(:country) %> </label>
+              <label class="col-md-12 control-label" ><%= t(:country) %> <span class='text-danger'>*</span></label>
               <div class="col-md-12">
                 <div class="input-group">
                   <% selected = options_for_select([[customer.country.name, customer.country_id]], customer.country_id) if customer.country.present? %>
@@ -95,7 +95,7 @@
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label class="col-md-12 control-label" ><%= t(:area) %> </label>
+              <label class="col-md-12 control-label" ><%= t(:area) %> <span class='text-danger'>*</span></label>
               <div class="col-md-12">
                 <div class="input-group">
                   <% selected = options_for_select([[customer.area.name, customer.area_id]], customer.area_id) if customer.area.present? %>
