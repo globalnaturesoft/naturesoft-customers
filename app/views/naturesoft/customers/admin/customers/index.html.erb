@@ -71,7 +71,7 @@
           <% @customers.each do |customer| %>
             <tr>
               <td class="kq_search">
-                <strong><%= link_to(customer.full_name, naturesoft_customers.edit_admin_customer_path(customer)) %></strong>
+                <strong><%= link_to(truncate(customer.full_name, length: 20), naturesoft_customers.edit_admin_customer_path(customer),{title: "#{customer.full_name}"}) %></strong>
               </td>
               <td class="kq_search">
                 <%= customer.phone %>
