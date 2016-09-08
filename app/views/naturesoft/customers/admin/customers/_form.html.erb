@@ -84,6 +84,7 @@
                       class: "select2-ajax required",
                       include_blank: "none",
                       "data-url": naturesoft_areas.select2_admin_countries_path,
+                      "data-child": "customer[area_id]:country_id"
                     }
                   ) %>
                   <span class="input-group-btn">
@@ -104,7 +105,7 @@
                     {
                       class: "select2-ajax required",
                       include_blank: "none",
-                      "data-url": naturesoft_areas.select2_admin_areas_path,
+                      "data-url": naturesoft_areas.select2_admin_areas_path,                      
                     }
                   ) %>
                   <span class="input-group-btn">
