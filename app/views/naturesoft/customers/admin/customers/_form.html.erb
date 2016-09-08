@@ -69,51 +69,53 @@
           </div>
         </div>
       </div>
-        
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label class="col-md-12 control-label" ><%= t(:country) %> </label>
-            <div class="col-md-12">
-              <div class="input-group">
-                <% selected = options_for_select([[customer.country.name, customer.country_id]], customer.country_id) if customer.country.present? %>
-                <%= select_tag("customer[country_id]",
-                  selected,
-                  {
-                    class: "select2-ajax required",
-                    include_blank: "none",
-                    "data-url": naturesoft_areas.select2_admin_countries_path,
-                  }
-                ) %>
-                <span class="input-group-btn">
-                  <a class="btn btn-info" href="<%= naturesoft_areas.new_admin_country_path %>"><i class="icon-plus2"></i></a>
-                </span>
+      
+      <% if Naturesoft::Core.available?("areas") %>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="col-md-12 control-label" ><%= t(:country) %> </label>
+              <div class="col-md-12">
+                <div class="input-group">
+                  <% selected = options_for_select([[customer.country.name, customer.country_id]], customer.country_id) if customer.country.present? %>
+                  <%= select_tag("customer[country_id]",
+                    selected,
+                    {
+                      class: "select2-ajax required",
+                      include_blank: "none",
+                      "data-url": naturesoft_areas.select2_admin_countries_path,
+                    }
+                  ) %>
+                  <span class="input-group-btn">
+                    <a class="btn btn-info" href="<%= naturesoft_areas.new_admin_country_path %>"><i class="icon-plus2"></i></a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="col-md-12 control-label" ><%= t(:area) %> </label>
+              <div class="col-md-12">
+                <div class="input-group">
+                  <% selected = options_for_select([[customer.area.name, customer.area_id]], customer.area_id) if customer.area.present? %>
+                  <%= select_tag("customer[area_id]",
+                    selected,
+                    {
+                      class: "select2-ajax required",
+                      include_blank: "none",
+                      "data-url": naturesoft_areas.select2_admin_areas_path,
+                    }
+                  ) %>
+                  <span class="input-group-btn">
+                    <a class="btn btn-info" href="<%= naturesoft_areas.new_admin_area_path %>"><i class="icon-plus2"></i></a>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label class="col-md-12 control-label" ><%= t(:area) %> </label>
-            <div class="col-md-12">
-              <div class="input-group">
-                <% selected = options_for_select([[customer.area.name, customer.area_id]], customer.area_id) if customer.area.present? %>
-                <%= select_tag("customer[area_id]",
-                  selected,
-                  {
-                    class: "select2-ajax required",
-                    include_blank: "none",
-                    "data-url": naturesoft_areas.select2_admin_areas_path,
-                  }
-                ) %>
-                <span class="input-group-btn">
-                  <a class="btn btn-info" href="<%= naturesoft_areas.new_admin_area_path %>"><i class="icon-plus2"></i></a>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <% end %>
     
       <div class="text-right">
         <%= button_tag "#{t(:save)}<i class=\"icon-check position-right\"></i>".html_safe, class: "btn btn-primary"%>

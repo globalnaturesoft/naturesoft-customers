@@ -1,7 +1,9 @@
 module Naturesoft::Customers
   class Customer < ApplicationRecord
-    belongs_to :country, class_name: "Naturesoft::Areas::Country"
-    belongs_to :area, class_name: "Naturesoft::Areas::Area"
+    if Naturesoft::Core.available?("areas")
+      belongs_to :country, class_name: "Naturesoft::Areas::Country"
+      belongs_to :area, class_name: "Naturesoft::Areas::Area"
+    end
     
     def self.sort_by
       [
