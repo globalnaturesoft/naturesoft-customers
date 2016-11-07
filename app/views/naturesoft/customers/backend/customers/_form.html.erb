@@ -19,7 +19,7 @@
   
   <div class="panel-body">
 
-    <%= form_for([naturesoft_customers, :admin, customer], html: {class: "form-horizontal validate", multipart: true}) do |f| %>
+    <%= form_for([naturesoft_customers, :backend, customer], html: {class: "form-horizontal validate", multipart: true}) do |f| %>
     
       <div class="row">
         <div class="col-md-6">
@@ -83,12 +83,12 @@
                     {
                       class: "select2-ajax required",
                       include_blank: "none",
-                      "data-url": naturesoft_areas.select2_admin_countries_path,
+                      "data-url": naturesoft_areas.select2_backend_countries_path,
                       "data-child": "customer[area_id]:country_id"
                     }
                   ) %>
                   <span class="input-group-btn">
-                    <a class="btn btn-info" href="<%= naturesoft_areas.new_admin_country_path %>"><i class="icon-plus2"></i></a>
+                    <a class="btn btn-info" href="<%= naturesoft_areas.new_backend_country_path %>"><i class="icon-plus2"></i></a>
                   </span>
                 </div>
               </div>
@@ -105,11 +105,11 @@
                     {
                       class: "select2-ajax required",
                       include_blank: "none",
-                      "data-url": naturesoft_areas.select2_admin_areas_path,                      
+                      "data-url": naturesoft_areas.select2_backend_areas_path,                      
                     }
                   ) %>
                   <span class="input-group-btn">
-                    <a class="btn btn-info" href="<%= naturesoft_areas.new_admin_area_path %>"><i class="icon-plus2"></i></a>
+                    <a class="btn btn-info" href="<%= naturesoft_areas.new_backend_area_path %>"><i class="icon-plus2"></i></a>
                   </span>
                 </div>
               </div>
@@ -120,7 +120,7 @@
     
       <div class="text-right">
         <%= button_tag "#{t(:save)}<i class=\"icon-check position-right\"></i>".html_safe, class: "btn btn-primary"%>
-        <%= link_to "#{t(:cancel)}<i class=\"icon-cross3 position-right\"></i>".html_safe, naturesoft_customers.admin_customers_path, class: "btn btn-danger"%>
+        <%= link_to "#{t(:cancel)}<i class=\"icon-cross3 position-right\"></i>".html_safe, naturesoft_customers.backend_customers_path, class: "btn btn-danger"%>
       </div>
         
     <% end %>

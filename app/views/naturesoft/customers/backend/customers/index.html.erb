@@ -1,7 +1,7 @@
 <% title "Customers" %>
 
 <div class="page_actions">
-    <%= link_to ("#{t(:new_customer)}" + '<i class="icon-plus22 position-right"></i>').html_safe, naturesoft_customers.new_admin_customer_path, class: 'btn btn-primary' %>
+    <%= link_to ("#{t(:new_customer)}" + '<i class="icon-plus22 position-right"></i>').html_safe, naturesoft_customers.new_backend_customer_path, class: 'btn btn-primary' %>
 </div>
 <br />
 <form class="listing-form">
@@ -73,7 +73,7 @@
           <% @customers.each do |customer| %>
             <tr>
               <td class="kq_search">
-                <strong><%= link_to(truncate(customer.full_name, length: 20), naturesoft_customers.edit_admin_customer_path(customer),{title: "#{customer.full_name}"}) %></strong>
+                <strong><%= link_to(truncate(customer.full_name, length: 20), naturesoft_customers.edit_backend_customer_path(customer),{title: "#{customer.full_name}"}) %></strong>
               </td>
               <td class="kq_search">
                 <%= customer.phone %>
@@ -88,15 +88,15 @@
 							<td></td>
               <td class="text-right">
                 <div class="btn-group">
-									<%= link_to '<i class="icon-point-right"></i>'.html_safe, naturesoft_customers.admin_customer_path(customer), class: "btn bg-teal-400 btn-icon", title: "View detail" %>
+									<%= link_to '<i class="icon-point-right"></i>'.html_safe, naturesoft_customers.backend_customer_path(customer), class: "btn bg-teal-400 btn-icon", title: "View detail" %>
                   <button type="button" class="btn bg-teal-400 dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
                   <ul class="dropdown-menu dropdown-menu-right">
 										<li>
-											<%= link_to '<i class="icon-pencil"></i>'.html_safe + t(:edit), naturesoft_customers.edit_admin_customer_path(customer), title: "Edit Customer" %>
+											<%= link_to '<i class="icon-pencil"></i>'.html_safe + t(:edit), naturesoft_customers.edit_backend_customer_path(customer), title: "Edit Customer" %>
 										</li>
 										<li class="divider"></li>
 										<li>
-											<%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe + t(:delete), naturesoft_customers.admin_customer_path(customer), method: :delete, data: { confirm: 'Are you sure?' } , class: "backend_delete_item" %>
+											<%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe + t(:delete), naturesoft_customers.backend_customer_path(customer), method: :delete, data: { confirm: 'Are you sure?' } , class: "backend_delete_item" %>
 										</li>
 									</ul>
 								</div>

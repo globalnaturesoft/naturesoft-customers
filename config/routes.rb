@@ -1,5 +1,5 @@
 Naturesoft::Customers::Engine.routes.draw do
-  namespace :admin, module: "admin" do
+  namespace :backend, module: "backend" do
     resources :customers
   end
 end

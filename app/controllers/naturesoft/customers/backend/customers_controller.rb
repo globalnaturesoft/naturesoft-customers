@@ -1,13 +1,13 @@
 module Naturesoft
   module Customers
-    module Admin
-      class CustomersController < Naturesoft::Admin::AdminController
+    module Backend
+      class CustomersController < Naturesoft::Backend::BackendController
         before_action :set_customer, only: [:show, :edit, :update, :destroy]
         before_action :default_breadcrumb
         
         # add top breadcrumb
         def default_breadcrumb
-          add_breadcrumb "Customers", naturesoft_customers.admin_customers_path
+          add_breadcrumb "Customers", naturesoft_customers.backend_customers_path
         end
     
         # GET /customers
@@ -35,7 +35,7 @@ module Naturesoft
           @customer = Customer.new(customer_params)
     
           if @customer.save
-            redirect_to naturesoft_customers.edit_admin_customer_path(@customer.id), notice: 'Customer was successfully created.'
+            redirect_to naturesoft_customers.edit_backend_customer_path(@customer.id), notice: 'Customer was successfully created.'
           else
             render :new
           end
@@ -44,7 +44,7 @@ module Naturesoft
         # PATCH/PUT /customers/1
         def update
           if @customer.update(customer_params)
-            redirect_to naturesoft_customers.edit_admin_customer_path(@customer.id), notice: 'Customer was successfully updated.'
+            redirect_to naturesoft_customers.edit_backend_customer_path(@customer.id), notice: 'Customer was successfully updated.'
           else
             render :edit
           end
